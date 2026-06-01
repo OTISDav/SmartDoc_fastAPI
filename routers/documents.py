@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from app.database import SessionLocal
-from app.schemas.document import DocumentCreate
-from app.services import document_service
+from database import SessionLocal
+from schemas.document import DocumentCreate
+from services import document_service
 
 router = APIRouter(prefix="/documents", tags=["Documents"])
 

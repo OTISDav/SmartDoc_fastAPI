@@ -1,5 +1,6 @@
-from app.models.document import Document
-from app.redis import redis_client
+from models.document import Document
+# from redis import redis_client
+# from redis_config import SmartDoc_fastAPI
 
 def create_document(db, doc):
     new_doc = Document(**doc.dict())
@@ -7,7 +8,7 @@ def create_document(db, doc):
     db.commit()
     db.refresh(new_doc)
 
-    redis_client.set(f"doc:{new_doc.id}", new_doc.title)
+    # redis_client.set(f"doc:{new_doc.id}", new_doc.title)
 
     return new_doc
 
